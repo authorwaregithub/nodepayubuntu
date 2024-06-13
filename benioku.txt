@@ -17,5 +17,5 @@ sudo ./nodepayubuntuvps.sh.sh
 -------------------------------------------------------------------------------------------------------------------------------------
 Uyarı : "nodepayubuntuvps.sh" dosyası github klasöründe mevcut ordan indirip sunucunuza kopyalayabilirsiniz.
 -------------------------------------------------------------------------------------------------------------------------------------
-Google Chrome'da "Only On Desktop" hatası alıyorsanız "edgekurulum" dosyasını inceleyiniz.
+Google Chrome'da "Only On Desktop" hatası alıyorsanız "edgekurulum.txt" dosyasını inceleyiniz.
 -------------------------------------------------------------------------------------------------------------------------------------
