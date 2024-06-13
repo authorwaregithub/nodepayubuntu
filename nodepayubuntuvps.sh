@@ -1,49 +1,49 @@
 #!/bin/bash
 
-# Define user and password variables
+# Kullanıcı ve şifre değişkenlerini tanımlayın.
 
 USER="kullaniciadiniz"
 
 PASSWORD="sifreniz"
 
-# Update the package list
+# Paket listesini güncelleyin.
 sudo apt update
 
-# Install GNOME Desktop
+# GNOME Masaüstünü yükleyin.
 sudo apt install -y ubuntu-desktop
 
-# Install the remote desktop server (xrdp)
+# Uzak masaüstü sunucusunu (xrdp) kurun.
 sudo apt install -y xrdp
 
-# Add the user USER with the password
+# USER kullanıcısını ve şifresini ekleyin
 sudo useradd -m -s /bin/bash $USER
 echo "$USER:$PASSWORD" | sudo chpasswd
 
-# Add the user USER to the sudo group for administrative rights
+# Yönetici hakları için USER kullanıcısını sudo grubuna ekleyin.
 sudo usermod -aG sudo $USER
 
-# Configure xrdp to use the GNOME desktop
+# Xrdp'yi GNOME masaüstünü kullanacak şekilde yapılandırın.
 echo "gnome-session" > ~/.xsession
 
-# Restart the xrdp service
+# Xrdp hizmetini yeniden başlatın.
 sudo systemctl restart xrdp
 
-# Enable xrdp at startup
+# Başlangıçta Xrdp'yi etkinleştirin.
 sudo systemctl enable xrdp
 
-# Install the necessary dependencies for Google Chrome
+# Google Chrome için gerekli bağımlılıkları yükleyin.
 sudo apt install -y wget gnupg
 
-# Add the Google repository key
+# Google depo anahtarını ekleyin.
 wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 
-# Add the Google Chrome repository
+# Google Chrome deposunu ekleyin.
 echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
 
-# Update the package list again
+# Paket listesini tekrar güncelleyin.
 sudo apt update
 
-# Install Google Chrome
+# Google Chrome'u yükleyin.
 sudo apt install -y google-chrome-stable
 
-echo "Installation complete. GNOME Desktop, xrdp, and Google Chrome have been installed. You can now connect via Remote Desktop with the user $USER."
+echo "Kurulum tamamlandi. GNOME Desktop, Xrdp ve Google Chrome kuruldu. Artik uzak masaustu uzerinden, kullanici adinizla sunucuya baglanabilirsiniz."
