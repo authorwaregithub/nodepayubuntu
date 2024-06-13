@@ -2,9 +2,9 @@
 
 # Define user and password variables
 
-USER="evren"
+USER="kullaniciadiniz"
 
-PASSWORD="12345"
+PASSWORD="sifreniz"
 
 # Update the package list
 sudo apt update
